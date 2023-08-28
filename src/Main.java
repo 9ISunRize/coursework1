@@ -26,6 +26,9 @@ public class Main {
         System.out.println("средняя зарплата: " + calculateTheAverageValueOfSalaries());
         printSeparator();
         printFullName();
+        String a = " madame";// Работает только на английском языке, слово "madam"
+        System.out.println(isPalindrome(a));
+
     }
 
     public static void printSeparator() {
@@ -75,4 +78,10 @@ public class Main {
             System.out.println(employee.getFullName());
         }
     }
+
+    public static boolean isPalindrome(String text) {
+        return text.replaceAll("\\W", "")
+                .equalsIgnoreCase(new StringBuilder(text.replaceAll("\\W", "")).reverse().toString());
+    }
+
 }
