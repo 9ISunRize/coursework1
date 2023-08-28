@@ -17,19 +17,21 @@ public class Main {
     public static void main(String[] args) {
         printEmployees();
         printSeparator();
-        System.out.println("Сумма всех зарплат: "+calculateTotalSalary());
+        System.out.println("Сумма всех зарплат: " + calculateTotalSalary());
         printSeparator();
-        System.out.println("Сотрудник с минимальной зарплатой: "+ FindAnEmployeeWithAMinSalary());
+        System.out.println("Сотрудник с минимальной зарплатой: " + FindAnEmployeeWithAMinSalary());
         printSeparator();
-        System.out.println("Сотрудник с максимальной зарплатой:"+ FindAnEmployeeWithAMaxSalary());
+        System.out.println("Сотрудник с максимальной зарплатой:" + FindAnEmployeeWithAMaxSalary());
         printSeparator();
-        System.out.println("средняя зарплата: "+ calculateTheAverageValueOfSalaries());
+        System.out.println("средняя зарплата: " + calculateTheAverageValueOfSalaries());
         printSeparator();
-        printFullName ();
+        printFullName();
     }
-public static void printSeparator(){
-    System.out.println("___________________________________________________________________________________________________________________________________");
-}
+
+    public static void printSeparator() {
+        System.out.println("___________________________________________________________________________________________________________________________________");
+    }
+
     public static void printEmployees() {
         for (Employee employee : employees) {
             System.out.println(employee);
@@ -43,28 +45,32 @@ public static void printSeparator(){
         }
         return sumSalary;
     }
-    public static Employee FindAnEmployeeWithAMinSalary(){
+
+    public static Employee FindAnEmployeeWithAMinSalary() {
         Employee employeeWithAMinSalary = employees[0];
         for (Employee employee : employees) {
-            if (employee.getSalary() < employeeWithAMinSalary.getSalary()){
+            if (employee.getSalary() < employeeWithAMinSalary.getSalary()) {
                 employeeWithAMinSalary = employee;
             }
         }
         return employeeWithAMinSalary;
     }
-    public static Employee FindAnEmployeeWithAMaxSalary(){
+
+    public static Employee FindAnEmployeeWithAMaxSalary() {
         Employee employeeWithAMaxSalary = employees[0];
         for (Employee employee : employees) {
-            if (employee.getSalary() > employeeWithAMaxSalary.getSalary()){
+            if (employee.getSalary() > employeeWithAMaxSalary.getSalary()) {
                 employeeWithAMaxSalary = employee;
             }
         }
         return employeeWithAMaxSalary;
     }
-    public static float calculateTheAverageValueOfSalaries (){
-        return calculateTotalSalary()/(float) employees.length;
+
+    public static float calculateTheAverageValueOfSalaries() {
+        return calculateTotalSalary() / (float) employees.length;
     }
-    public static void printFullName (){
+
+    public static void printFullName() {
         for (Employee employee : employees) {
             System.out.println(employee.getFullName());
         }
