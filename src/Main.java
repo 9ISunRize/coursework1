@@ -26,8 +26,9 @@ public class Main {
         System.out.println("средняя зарплата: " + calculateTheAverageValueOfSalaries());
         printSeparator();
         printFullName();
-        String a = " madame";// Работает только на английском языке, слово "madam"
-        System.out.println(isPalindrome(a));
+        String line1 = "9Madam, I'm Adam!9";
+        String line2 = "Пионы";
+        System.out.println(isPalindrom(line2));
 
     }
 
@@ -84,4 +85,29 @@ public class Main {
                 .equalsIgnoreCase(new StringBuilder(text.replaceAll("\\W", "")).reverse().toString());
     }
 
+    public static Boolean isPalindrom(String text) {
+        String leftRight = "";
+        String rightLeft = "";
+        char[] arr0 = text.toCharArray();
+        for (int I = 0; I <= arr0.length - 1; I++) {
+            if (Character.isLetterOrDigit(arr0[I]) == false) {
+                I++;
+            }
+            leftRight += arr0[I];
+        }
+        leftRight = leftRight.replace(" ", "");
+        char[] arr1 = leftRight.toCharArray();
+        char[] arr2 = new char[arr1.length];
+        for (int i = arr1.length - 1; i > 0; ) {
+            for (int j = 0; j < arr2.length; j++) {
+                arr2[j] = arr1[i];
+                i--;
+                rightLeft += arr2[j];
+            }
+        }
+        System.out.println(text);
+        System.out.println(leftRight);
+        System.out.println(rightLeft);
+        return leftRight.equalsIgnoreCase(rightLeft);
+    }
 }
